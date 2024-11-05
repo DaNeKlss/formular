@@ -1,8 +1,9 @@
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+/* eslint-disable @typescript-eslint/use-unknown-in-catch-callback-variable */
+import { bootstrapApplication } from '@angular/platform-browser';
+import { appConfig } from './app.config';
+import { AppComponent } from './app/app.component';
 
-import { AppModule } from './app/app.module';
-
-platformBrowserDynamic().bootstrapModule(AppModule, {
-  ngZoneEventCoalescing: true
-})
-  .catch(err => console.error(err));
+bootstrapApplication(AppComponent, appConfig).catch((err) => {
+  // eslint-disable-next-line no-console, @typescript-eslint/no-confusing-void-expression
+  console.error(err);
+});
